@@ -71,16 +71,25 @@ We are now at the last part of step by step guide on how to simulate STM32 proje
 
 
 ## STM 32 CUBE PROGRAM :
+```
+while (1)
+  {
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
+	  HAL_Delay(500);
+	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
+	  HAL_Delay(500);
+  }
 
-
-
+```
 
 ## Output screen shots of proteus  :
+### WHEN LED IS OFF :
+![OUTPUT  SCREEN](https://user-images.githubusercontent.com/118622513/235591835-34abeded-7bca-4b9b-a85a-bb9aa613e97a.png)
+
+### WHEN LED IS ON:
+![OUTPUT 2](https://user-images.githubusercontent.com/118622513/235591863-8c335ceb-0be1-4589-a9c7-80fc8e1741ea.png)
 
 
-
-
-## Proteus layout(Add pdf screen shot of circuit here)
  
  
  
