@@ -71,29 +71,46 @@ We are now at the last part of step by step guide on how to simulate STM32 proje
 
 
 ## STM 32 CUBE PROGRAM :
-```
-while (1)
-  {
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-	  HAL_Delay(500);
-	  HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_SET);
-	  HAL_Delay(500);
+``` 
+#include "main.h"
+#include"stdio.h"
+#include"stdbool.h"
+bool pm;
+void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
+int main(void)
+{
+  HAL_Init();
+  SystemClock_Config();
+  MX_GPIO_Init();
+	  while (1)
+	    {
+	     pm= HAL_GPIO_ReadPin(GPIOA,GPIO_PIN_1);
+	      if(pm==0)
+              {
+	  	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_SET);
+	  	HAL_Delay(1000);
+	  	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+	  	HAL_Delay(1000);
+	       }
+	      else
+	       {
+	  	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_0, GPIO_PIN_RESET);
+	        }
+	     }
   }
-
 ```
-
 ## Output screen shots of proteus  :
-### WHEN LED IS OFF :
-![OUTPUT  SCREEN](https://user-images.githubusercontent.com/118622513/235591835-34abeded-7bca-4b9b-a85a-bb9aa613e97a.png)
+### WHEN LED IS OFF:
+![image](https://user-images.githubusercontent.com/119404460/237003122-7c391195-98db-4a91-b298-e0294fd604c7.png)
+
+## Proteus layout(Add pdf screen shot of circuit here):
+![image](https://user-images.githubusercontent.com/119404460/237007181-dcfd1eff-760a-4ee2-a379-943dc07deeb7.png)
 
 ### WHEN LED IS ON:
-![OUTPUT 2](https://user-images.githubusercontent.com/118622513/235591863-8c335ceb-0be1-4589-a9c7-80fc8e1741ea.png)
+![image](https://user-images.githubusercontent.com/119404460/237003613-bbbbfe58-8a98-43e5-94ac-ca74f4fe5077.png)
 
 
- 
- 
- 
- 
 ## Result :
 Interfacing a digital output and digital input  with ARM microcontroller are simulated in proteus and the results are verified.
 
